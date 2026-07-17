@@ -1,3 +1,16 @@
+/* ============================================================
+   L'Oréal Smart Beauty Advisor — style.css
+   Brand palette: L'Oréal black, white, and gold accents
+   ============================================================ */
+
+/* —— L'Oréal brand colors —— */
+:root {
+  --loreal-black: #000000;
+  --loreal-white: #ffffff;
+  --loreal-gold: #c8a24b; /* signature gold accent */
+  --loreal-gray: #f5f3ef; /* soft warm background */
+}
+
 /* —— basic reset —— */
 * {
   box-sizing: border-box;
@@ -8,7 +21,8 @@
 /* —— body + fonts —— */
 body {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
-  color: #333;
+  color: var(--loreal-black);
+  background: var(--loreal-white);
   display: flex;
   justify-content: center;
 }
@@ -24,10 +38,36 @@ body {
   padding-top: 50px;
 }
 
+/* L'Oréal logo */
+.site-logo {
+  width: 220px;
+  max-width: 70%;
+  margin-bottom: 18px;
+}
+
 .site-title {
   font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.site-tagline {
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: var(--loreal-gold);
+}
+
+/* gold divider under the header */
+.site-header::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: var(--loreal-gold);
+  margin: 22px auto 0;
 }
 
 /* chat window */
@@ -35,29 +75,59 @@ body {
   margin: 40px 0;
 }
 
+/* LevelUp: latest question banner above the chat */
+.latest-question {
+  background: var(--loreal-black);
+  color: var(--loreal-white);
+  border-left: 4px solid var(--loreal-gold);
+  padding: 10px 16px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
 .chat-window {
-  height: 360px;
-  border: 1px solid #000;
+  height: 400px;
+  border: 1px solid var(--loreal-black);
+  border-top: 4px solid var(--loreal-gold);
   padding: 20px;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
   overflow-y: auto;
-  background: #fafafa;
+  background: var(--loreal-gray);
+
+  /* LevelUp: stack message bubbles vertically like a real chat */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* —— LevelUp: chat message bubbles —— */
+.msg {
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  line-height: 1.5;
+  word-wrap: break-word;
   white-space: pre-line;
 }
 
-/* messages */
-.msg {
-  margin-bottom: 14px;
-  line-height: 1.5;
-}
-
+/* user messages: black bubbles on the right */
 .msg.user {
-  color: #000;
+  align-self: flex-end;
+  background: var(--loreal-black);
+  color: var(--loreal-white);
+  border-bottom-right-radius: 4px;
 }
 
+/* assistant messages: white bubbles with gold accent on the left */
 .msg.ai {
-  color: #666666;
+  align-self: flex-start;
+  background: var(--loreal-white);
+  color: var(--loreal-black);
+  border: 1px solid #e2ddd3;
+  border-left: 3px solid var(--loreal-gold);
+  border-bottom-left-radius: 4px;
 }
 
 /* input row */
@@ -70,19 +140,20 @@ body {
 .chat-form input {
   flex: 1;
   padding: 12px;
-  border: 1px solid #ccc;
-  font-size: 18px;
+  border: 1px solid var(--loreal-black);
+  font-size: 16px;
+  font-family: inherit;
 }
 
 .chat-form input:focus {
-  outline: 2px solid #000;
+  outline: 2px solid var(--loreal-gold);
   outline-offset: 2px;
 }
 
 .chat-form button {
   font-size: 18px;
-  background: #000;
-  color: #fff;
+  background: var(--loreal-black);
+  color: var(--loreal-white);
   border: none;
   padding: 12px;
   width: 48px;
@@ -99,11 +170,11 @@ body {
 }
 
 .chat-form button:hover {
-  background: #666666;
+  background: var(--loreal-gold);
 }
 
 .chat-form button:focus {
-  outline: 2px solid #000;
+  outline: 2px solid var(--loreal-gold);
   outline-offset: 2px;
 }
 
@@ -134,10 +205,26 @@ body {
 
 .site-footer a {
   margin: 0 8px;
-  color: #000;
+  color: var(--loreal-black);
   text-decoration: none;
+  border-bottom: 1px solid var(--loreal-gold);
 }
 
 .site-footer a:hover {
-  color: #666666;
+  color: var(--loreal-gold);
+}
+
+/* —— responsive tweaks for small screens —— */
+@media (max-width: 600px) {
+  .site-logo {
+    width: 160px;
+  }
+
+  .msg {
+    max-width: 90%;
+  }
+
+  .chat-window {
+    height: 340px;
+  }
 }
