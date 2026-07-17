@@ -11,7 +11,7 @@ const chatWindow = document.getElementById("chatWindow");
 const latestQuestion = document.getElementById("latestQuestion");
 
 /* 🔗 Paste YOUR deployed Cloudflare Worker URL here */
-const WORKER_URL = "https://YOUR-WORKER-NAME.YOUR-SUBDOMAIN.workers.dev/";
+const WORKER_URL = "loreal-chatbot-project.laedwards3.workers.dev";
 
 /* System prompt: keeps the chatbot focused on L'Oréal topics only */
 const SYSTEM_PROMPT = `You are the L'Oréal Smart Beauty Advisor, a friendly and
