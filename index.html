@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Assistant</title>
+    <title>L'Oréal | Smart Beauty Advisor</title>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -19,13 +19,25 @@
     <div class="page-wrapper">
       <!------- Header / Branding ------->
       <header class="site-header">
-        <h1 class="site-title">Smart Product Advisor</h1>
+        <!-- L'Oréal logo for branding -->
+        <img
+          src="img/loreal-logo.png"
+          alt="L'Oréal logo"
+          class="site-logo"
+        />
+        <h1 class="site-title">Smart Beauty Advisor</h1>
+        <p class="site-tagline">
+          Discover products &amp; routines — because you're worth it.
+        </p>
       </header>
 
       <!------- Chat Area ------->
       <main>
         <section class="chatbox">
-          <div id="chatWindow" class="chat-window">
+          <!-- LevelUp: shows the user's latest question above the response -->
+          <div id="latestQuestion" class="latest-question" hidden></div>
+
+          <div id="chatWindow" class="chat-window" aria-live="polite">
             <!-- messages will be appended here via JS -->
           </div>
 
@@ -49,7 +61,7 @@
 
       <!------- Footer Links ------->
       <footer class="site-footer">
-        <p>&copy; 2025 Company Name. All rights reserved.</p>
+        <p>&copy; 2025 L'Oréal. All rights reserved.</p>
         <nav>
           <!-- These URLs are placeholders -->
           <a href="#">Privacy Policy</a>
